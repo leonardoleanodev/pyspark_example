@@ -1,1 +1,0 @@
-docker-compose up --scale spark-workers=3

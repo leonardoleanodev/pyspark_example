@@ -1,0 +1,2 @@
+FROM jupyter/all-spark-notebook:lab-3.5.1 as jupyter-local
+
