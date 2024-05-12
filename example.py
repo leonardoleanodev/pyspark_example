@@ -1,9 +1,4 @@
-# import findspark
-# findspark.find()
-# findspark.init()
-
-
-from pyspark.sql import SparkSession, context
+from pyspark.sql import SparkSession
 
 # Create SparkSession
 spark : SparkSession =  SparkSession.builder \
@@ -21,8 +16,3 @@ def mod(x):
     return (x,x*x)
 
 rdd_b = spark.sparkContext.parallelize(range(2),2)
-#result_b = rdd_b.map(mod) # map  returning error?
-
-# # rdd = spark.parallelize(range(2)).map(mod).take(10)
-
-# print(rdd)
