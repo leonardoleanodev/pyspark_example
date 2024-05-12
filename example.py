@@ -1,20 +1,20 @@
-import findspark
-findspark.find()
-findspark.init()
+# import findspark
+# findspark.find()
+# findspark.init()
 
 
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession, context
 
 # Create SparkSession
-spark = SparkSession.builder \
-                    .master("spark://172.18.0.3:7077") \
-                    .appName("example2") \
+spark : SparkSession =  SparkSession.builder \
+                    .master("spark://172.18.0.2:7077") \
+                    .appName("example") \
                     .getOrCreate()
 
 # Parallelize data and collect
 data = [0, 2, 3, 4, 6]
 rdd_a = spark.sparkContext.parallelize(data, 2)
-#result = rdd_a.glom().collect() # glom ?
+result = rdd_a.glom().collect() # glom ?
 
 
 def mod(x):
