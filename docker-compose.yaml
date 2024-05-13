@@ -26,7 +26,7 @@ services:
 
   jupyter-local:
     build: .
-    command: python -m jupyterlab --ip "0.0.0.0" --no-browser
+    command: python -m jupyterlab --ip "0.0.0.0" --no-browser --NotebookApp.token=''
     ports:
       - 8888:8888
     volumes:
