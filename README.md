@@ -1,6 +1,10 @@
 `docker-compose up --scale spark-workers=3`
 
-`chmod -R 777 app/`
+
+`mkdir app/`
+
+`chmod -rwx app/`
+
 
 ADD README based on make file
 
