@@ -1,4 +1,6 @@
-docker-compose up --scale spark-workers=3
+`docker-compose up --scale spark-workers=3`
+
+`chmod -R 777 app/`
 
 https://medium.com/@MarinAgli1/setting-up-a-spark-standalone-cluster-on-docker-in-layman-terms-8cbdc9fdd14b
 
