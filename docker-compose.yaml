@@ -43,7 +43,7 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - ./data:/hdvm12/datalake # persistent storage
+      - ./app:/app # persistent storage
     environment:
       - JUPYTER_ENABLE_LAB=yes
 
