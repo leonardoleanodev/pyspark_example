@@ -3,7 +3,7 @@
 
 `mkdir app/`
 
-`chmod -rwx app/`
+`chmod -R 777 app/`
 
 
 ADD README based on make file
