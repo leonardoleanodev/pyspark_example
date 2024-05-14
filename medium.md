@@ -18,7 +18,8 @@ If you got here you are already interested in spark/pyspark and jupyterlab and y
 
 ### setting up spark master
 
-create in the project ./conf/spark-defaults.conf, to setup the spark master url and logs.
+create in the project ./conf/spark-defaults.conf, to setup the spark master url and logs. This is the general configuration for the spark
+
 
 ```
 spark.master                           spark://spark-master:7077
@@ -26,8 +27,7 @@ spark.eventLog.enabled                 true
 spark.eventLog.dir                     /opt/spark/spark-events
 spark.history.fs.logDirectory          /opt/spark/spark-events
 ```
-
-this is the general configuration for the spark containers master and workers `spark.master` is the url dns for the master node that we need to point out to use the spark infrastructure, and others are for events logs.
+`spark.master` is the url dns for the master node that we need to point out to use the spark infrastructure and other arguments are for events logs.
 
 `docker-compose.yaml` block for the master:
 ```
