@@ -1,4 +1,3 @@
-# FROM python:3.10-slim as jupyter-local
 FROM bitnami/spark:3.5.1 as jupyter-local
 
 COPY requirements.txt requirements.txt
