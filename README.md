@@ -34,7 +34,7 @@ it you wanto more workers, run:
 docker-compose up --scale spark-worker=<Number of requested workers>
 ```
 
-## hostes
+## hosts
 
 spark-master UI: localhost:8080
 jupyterlab: localhost:8888
