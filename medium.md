@@ -6,8 +6,8 @@ If you got here you are already interested in spark/pyspark and jupyterlab and y
 
 ### Prerequisites
 
-- installed docker
-- installed docker-compose
+- (installed docker)[https://docs.docker.com/engine/install/]
+- (installed docker-compose)[https://docs.docker.com/compose/install/]
 
 ### What you will learn:
 - seeting up master and worker container
@@ -18,7 +18,7 @@ If you got here you are already interested in spark/pyspark and jupyterlab and y
 
 ### setting up spark master
 
-create in the project /conf/spark-defaults.conf, to setup the spark master url and logs.
+create in the project ./conf/spark-defaults.conf, to setup the spark master url and logs.
 
 ```
 spark.master                           spark://spark-master:7077
@@ -42,7 +42,7 @@ services:
       - 8080:8080
       - 7077:7077
     volumes:
-      - /path/to/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
 
 volumes:
   spark-logs:
@@ -63,7 +63,7 @@ volumes:
       SPARK_WORKER_MEMORY: 2g
       SPARK_MASTER_URL: spark://spark-master:7077
     volumes:
-      - /path/to/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
 
 ```
 
@@ -132,7 +132,7 @@ services:
       - 8080:8080
       - 7077:7077
     volumes:
-      - /path/to/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
 
   spark-worker:
     image: bitnami/spark:3.5.1
@@ -145,7 +145,7 @@ services:
       SPARK_WORKER_MEMORY: 2g
       SPARK_MASTER_URL: spark://spark-master:7077
     volumes:
-      - /path/to/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
 
   jupyter-local:
     build: .
