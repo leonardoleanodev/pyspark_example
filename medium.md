@@ -6,17 +6,17 @@ If you got here you are already interested in spark/pyspark and jupyterlab and y
 
 ### Prerequisites
 
-- (installed docker)[https://docs.docker.com/engine/install/]
-- (installed docker-compose)[https://docs.docker.com/compose/install/]
+- [Installed docker](https://docs.docker.com/engine/install/)
+- [installed docker-compose](https://docs.docker.com/compose/install/)
 
 ### What you will learn:
 - seeting up master and worker container
 - setup a jupyterlab compatible environment with spark
 - how to use spark session using distributed jobs
 
-## setting up
+## Setting up
 
-### setting up spark master
+### Setting up spark master
 
 create in the project ./conf/spark-defaults.conf, to setup the spark master url and logs. This is the general configuration for the spark
 
@@ -25,7 +25,7 @@ create in the project ./conf/spark-defaults.conf, to setup the spark master url 
 spark.master                           spark://spark-master:7077
 spark.eventLog.enabled                 true
 spark.eventLog.dir                     /opt/spark/spark-events
-spark.history.fs.logDirectory          /opt/spark/spark-events
+spark.history.fs. logDirectory          /opt/spark/spark-events
 ```
 `spark.master` is the url dns for the master node that we need to point out to use the spark infrastructure and other arguments are for events logs.
 
@@ -48,7 +48,7 @@ volumes:
   spark-logs:
 ```
 
-### setting up worker
+### Setting up worker
 
 `docker-compose.yaml` block, for the worker:
 ```
@@ -69,7 +69,7 @@ volumes:
 
 The worker will connect to the master to get the messages to do the jobs.
 
-### setting up jupyterlab
+### Setting up jupyterlab
 
 create the shared data for jupyterlab where the notebooks or data that you want to work will rest
 
@@ -116,9 +116,9 @@ EXPOSE 8888
       - JUPYTER_ENABLE_LAB=yes
 ```
 
-### docker-compose all toggeter
+### docker-compose all together
 
-sumurising the `docker-compose.yaml`:
+summarizing the `docker-compose.yaml`:
 
 ```
 version: '3.7'
@@ -172,12 +172,11 @@ for more than one worker run this:
 docker-compose up --scale spark-worker=3
 ```
 
-### up and runnig - lets use the jupyter lab
+### Up and runnig - lets use the jupyter lab
 
 Open the browser at http://localhost:8080/ you should see the spark master UI
 
-[IMAGE OF THE SPARK MASTER UI]
-![spark master node UI](spark-master-image "spark master node UI")
+![spark master node UI](spark-master-image.png "spark master node UI")
 
 open the browser at http://localhost:8888 you should see the jupyterlab UI.
 Create a new environment and test the conection with the example code:
@@ -210,6 +209,8 @@ to shutdown everything:
 ```
 docker-compose down
 ```
+
+Code at the repository: https://github.com/LeonardoLeano333/pyspark_example
 
 ## Conclusions:
 
