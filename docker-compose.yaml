@@ -10,6 +10,7 @@ services:
       - 7077:7077
     volumes:
       - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./app:/app # persistent storage
 
   spark-worker:
     image: bitnami/spark:3.5.1
@@ -23,6 +24,7 @@ services:
       SPARK_MASTER_URL: spark://spark-master:7077
     volumes:
       - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./app:/app # persistent storage
 
   jupyter-local:
     depends_on:
